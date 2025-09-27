@@ -21,8 +21,10 @@ export default function WeatherApp() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center py-8">
-      <h2 className="text-4xl font-bold text-blue-600 mb-6">Weather App By Rohit</h2>
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-200 to-purple-300 flex flex-col items-center py-10 px-4">
+      <h2 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-700 drop-shadow-lg mb-8 tracking-wide animate-pulse">
+        Weather App By Rohit
+      </h2>
       <SearchBox updateInfo={updateInfo} />
       <br />
       <InfoBox info={weatherInfo} />

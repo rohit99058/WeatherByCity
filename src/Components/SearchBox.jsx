@@ -1,6 +1,6 @@
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import { useState } from 'react';
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import { useState } from "react";
 
 export default function SearchBox({ updateInfo }) {
   let [city, setCity] = useState("");
@@ -24,8 +24,6 @@ export default function SearchBox({ updateInfo }) {
         feelslike: jsonResponse.main.feels_like,
         weather: jsonResponse.weather[0].description,
       };
-      console.log(result.city);
-      console.log(result);
       return result;
     } catch (err) {
       throw err;
@@ -48,8 +46,8 @@ export default function SearchBox({ updateInfo }) {
   };
 
   return (
-    <div className="w-full max-w-md p-4 bg-white shadow-lg rounded-lg">
-      <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+    <div className="w-full max-w-md p-6 bg-white/80 backdrop-blur-lg shadow-2xl rounded-2xl border border-gray-200 transition-transform hover:scale-105 hover:shadow-3xl">
+      <form onSubmit={handleSubmit} className="flex flex-col space-y-5">
         <TextField
           id="city"
           label="City Name"
@@ -57,18 +55,19 @@ export default function SearchBox({ updateInfo }) {
           required
           value={city}
           onChange={handleChange}
-          className="w-full"
-        /> <br />
+          className="w-full bg-white rounded-lg"
+        />
         <Button
           type="submit"
           variant="contained"
-          className="bg-blue-600 text-white hover:bg-blue-700 transition"
+          className="!bg-gradient-to-r !from-blue-500 !to-indigo-600 !text-white !font-semibold !py-2 !rounded-lg !shadow-md hover:!shadow-xl transition-all duration-300"
         >
           Search
         </Button>
-
         {error && (
-          <p className="text-red-600 text-sm mt-2">No such place exists</p>
+          <p className="text-red-600 text-sm mt-2 text-center font-medium">
+            No such place exists
+          </p>
         )}
       </form>
     </div>
